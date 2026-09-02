@@ -41,6 +41,17 @@ CodeAlpha_FlashCardQuizApp/
 ├── .github/
 │   └── workflows/
 │       └── android.yml
+├── screenshots/
+│   ├── Screenshot_20260902-101424_Flashcard Quiz.png
+│   ├── Screenshot_20260902-101426_Flashcard Quiz.png
+│   ├── Screenshot_20260902-101430_Flashcard Quiz.png
+│   ├── Screenshot_20260902-101433_Flashcard Quiz.png
+│   ├── Screenshot_20260902-101438_Flashcard Quiz.png
+│   ├── Screenshot_20260902-101446_Flashcard Quiz.png
+│   ├── Screenshot_20260902-101449_Flashcard Quiz.png
+│   ├── Screenshot_20260902-101451_Flashcard Quiz.png
+│   ├── Screenshot_20260902-101515_Flashcard Quiz.png
+│   └── Screenshot_20260902-101518_Flashcard Quiz.png
 ├── build.gradle.kts
 ├── gradle.properties
 ├── settings.gradle.kts
@@ -119,7 +130,15 @@ This project was created to satisfy the Flashcard Quiz App requirements provided
 
 ## 📸 Screenshots
 
-Screenshots can be added here to demonstrate the main flashcard screen and flashcard management interface.
+The following screenshots demonstrate the application's flashcard interface and its main functionality.
+
+| Flashcard Quiz App | Flashcard Quiz App |
+|---|---|
+| ![Flashcard Quiz Screenshot 1](screenshots/Screenshot_20260902-101424_Flashcard%20Quiz.png) | ![Flashcard Quiz Screenshot 2](screenshots/Screenshot_20260902-101426_Flashcard%20Quiz.png) |
+| ![Flashcard Quiz Screenshot 3](screenshots/Screenshot_20260902-101430_Flashcard%20Quiz.png) | ![Flashcard Quiz Screenshot 4](screenshots/Screenshot_20260902-101433_Flashcard%20Quiz.png) |
+| ![Flashcard Quiz Screenshot 5](screenshots/Screenshot_20260902-101438_Flashcard%20Quiz.png) | ![Flashcard Quiz Screenshot 6](screenshots/Screenshot_20260902-101446_Flashcard%20Quiz.png) |
+| ![Flashcard Quiz Screenshot 7](screenshots/Screenshot_20260902-101449_Flashcard%20Quiz.png) | ![Flashcard Quiz Screenshot 8](screenshots/Screenshot_20260902-101451_Flashcard%20Quiz.png) |
+| ![Flashcard Quiz Screenshot 9](screenshots/Screenshot_20260902-101515_Flashcard%20Quiz.png) | ![Flashcard Quiz Screenshot 10](screenshots/Screenshot_20260902-101518_Flashcard%20Quiz.png) |
 
 ## 📥 Clone the Repository
 

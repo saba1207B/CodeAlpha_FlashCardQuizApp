@@ -1,0 +1,6 @@
+{
+  "name": "Flashcard Quiz",
+  "description": "A clean and simple flashcard quiz app for studying with customizable cards, answer flipping, and navigation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

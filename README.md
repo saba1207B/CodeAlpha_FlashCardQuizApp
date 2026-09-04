@@ -121,11 +121,13 @@ The submitted APK is generated from the repository source through GitHub Actions
 
 ### Play Protect status
 
-The signed Release APK is **expected to pass Google Play Protect verification** under normal conditions. A physical-device installation test has also been performed with Google Play Protect enabled. On the tested installation flow, Play Protect completed its scan and allowed installation without the previous harmful-app warning.
+A physical-device installation test has been performed with Google Play Protect enabled. The tested APK completed the available Play Protect installation check and was allowed to install without the previous harmful-app warning.
 
-For this repository, a dedicated Play Protect evidence screenshot is not currently available because Play Protect may not display the scan dialog again after an APK has already been evaluated on the device. The `screenshots/` directory is retained for future evidence.
+This should be understood as an **observed test result for the tested APK and device**, not as a universal Play Protect approval or certification.
 
-**Important:** Play Protect is a dynamic security system. Results can vary depending on the device, Android version, APK version, account/device state, and Google's current detection systems. Therefore, this project does not claim a universal guarantee for every device or every future build.
+**Important device-compatibility note:** Google Play Protect is a dynamic security system. The exact scan screen, warning, or safe-to-install message may not appear on every device or installation. Results and displayed messages can vary depending on the device, Android version, Google Play services, account/device state, APK version, installation history, and Google's current security systems. Therefore, this project does not claim that every device will display the same verification screen or produce the same result for every future build.
+
+A dedicated Play Protect screenshot is not currently available in this repository because the device may not display the same installation-scan dialog again after an APK has already been evaluated. The `screenshots/` directory is retained for future evidence.
 
 ### Security/maintenance indicators
 
@@ -136,7 +138,8 @@ For this repository, a dedicated Play Protect evidence screenshot is not current
 | Signed Release APK | ✅ |
 | APK signature verified in CI | ✅ |
 | Android permissions | ✅ No unnecessary permissions declared |
-| Play Protect expectation | ✅ Expected to pass under normal conditions |
+| Physical-device Play Protect test | ✅ Completed |
+| Universal Play Protect approval/certification | ❌ Not claimed |
 | Dedicated Play Protect screenshot | ⏳ Not currently available |
 
 Keep Google Play Protect enabled when installing APKs from outside Google Play.
@@ -169,7 +172,7 @@ This project was created to satisfy the Flashcard Quiz App requirements provided
 
 ## 📸 Screenshots
 
-The repository contains application UI screenshots demonstrating the flashcard interface and its main functionality. The `screenshots/` directory is also reserved for Play Protect verification evidence when a dedicated screenshot is available.
+The repository contains application UI screenshots demonstrating the flashcard interface and its main functionality. The `screenshots/` directory is also reserved for Play Protect verification evidence when dedicated screenshots are available.
 
 ## 📥 Clone the Repository
 

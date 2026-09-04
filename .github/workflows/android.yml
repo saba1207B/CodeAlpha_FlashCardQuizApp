@@ -1,12 +1,22 @@
-name: Android CI
+name: Android Release CI
 
 on:
   push:
+    branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
+    name: Build Signed Release APK
     runs-on: ubuntu-latest
+
+    env:
+      KEYSTORE_PATH: ${{ github.workspace }}/ci-release.keystore
+      STORE_PASSWORD: ci-release-password
+      KEY_PASSWORD: ci-release-password
 
     steps:
       - name: Checkout repository
@@ -15,9 +25,9 @@ jobs:
       - name: Set up JDK 17 (Temurin)
         uses: actions/setup-java@v5
         with:
-          distribution: 'temurin'
+          distribution: temurin
           java-version: '17'
-          cache: 'gradle'
+          cache: gradle
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -25,17 +35,36 @@ jobs:
       - name: Ensure Gradle Wrapper exists
         run: |
           if [ ! -f ./gradlew ]; then
-            echo "gradlew missing – generating wrapper for Gradle 8.7"
+            echo "gradlew missing – generating wrapper for Gradle 9.3.1"
             gradle wrapper --gradle-version 9.3.1
           fi
           chmod +x gradlew
 
-      - name: Build debug APK
-        run: ./gradlew assembleDebug --stacktrace --no-daemon
+      - name: Generate CI release keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore "$KEYSTORE_PATH" \
+            -storepass "$STORE_PASSWORD" \
+            -alias upload \
+            -keypass "$KEY_PASSWORD" \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=CodeAlpha CI,O=CodeAlpha,C=IN"
 
-      - name: Upload debug APK artifact
+      - name: Build signed release APK
+        run: ./gradlew assembleRelease --stacktrace --no-daemon
+
+      - name: Verify APK signature
+        run: |
+          APK="app/build/outputs/apk/release/app-release.apk"
+          test -f "$APK"
+          $ANDROID_HOME/build-tools/$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)/apksigner verify --verbose "$APK"
+
+      - name: Upload signed release APK
         uses: actions/upload-artifact@v4
         with:
-          name: flashcard-quiz-app
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: flashcard-quiz-app-signed-release
+          path: app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error
+          retention-days: 30
